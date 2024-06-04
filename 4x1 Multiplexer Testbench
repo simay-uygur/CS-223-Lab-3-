@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+
+module four_to_one_mux_behav_test();
+    reg D0, D1, D2, D3, s0, s1;
+    wire out;
+    four_to_one_mux_Behav uutest(D0,D1,D2,D3,s0,s1,out);
+    initial begin
+    D0 = 1'b1; D1 = 1'b0; D2 = 1'b0; D3 = 1'b0; s0 = 1'b0; s1 = 1'b0;
+    #10;
+      D0 = 1'b0; D1 = 1'b1; s0 = 1'b1;
+    #10;
+        D1 = 1'b0; D2 = 1'b1; s0 = 1'b0; s1 = 1'b1;
+    #10;
+        D2 = 1'b0; D3 = 1'b1; s0 = 1'b1;
+    #10;
+    D0 = 1'b1; D1 = 1'b0; D2 = 1'b0; D3 = 1'b0; s0 = 1'b1; s1 = 1'b0;
+    #10;
+        D0 = 1'b0; D1 = 1'b1; s0 = 1'b0; s1 = 1'b1;
+    #10;
+        D1 = 1'b0; D2 = 1'b1; s0 = 1'b1; s1 = 1'b0;
+    #10;
+        D2 = 1'b0; D3 = 1'b1; s0 = 1'b0; s1 = 1'b1;
+    #10;
+        D0 = 1'b1; D1 = 1'b0; D2 = 1'b0; D3 = 1'b0; s0 = 1'b1; s1 = 1'b1;
+    #10;
+        D0 = 1'b0; D1 = 1'b1; s0 = 1'b1; s1 = 1'b1;
+    #10;
+        D1 = 1'b0; D2 = 1'b1; s0 = 1'b1; s1 = 1'b1;
+    #10;
+            D2 = 1'b0; D3 = 1'b1; s0 = 1'b1; s1 = 1'b1;
+    #10;
+        D0 = 1'b1; D1 = 1'b0; D2 = 1'b0; D3 = 1'b0; s0 = 1'b0; s1 = 1'b0;
+    #10;
+            D0 = 1'b0; D1 = 1'b1; s0 = 1'b0; s1 = 1'b0;
+    #10;
+        D2 = 1'b0; D3 = 1'b1; s0 = 1'b0; s1 = 1'b0;
+    #10;
+    end
+endmodule
