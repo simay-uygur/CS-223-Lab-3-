@@ -1,0 +1,9 @@
+`timescale 1ns / 1ps
+
+module function_g_behav(input w1,w2,w3, output m);
+    wire d0,s,out;
+    assign d0 = w1&w2;
+    assign s = w1^w2;
+    two_to_one_mux_Behav mx1(d0,w3,s,out);
+    assign m = out;
+endmodule
