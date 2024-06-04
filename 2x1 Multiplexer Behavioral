@@ -1,0 +1,5 @@
+`timescale 1ns / 1ps
+
+module two_to_one_mux_Behav(input D0, D1, S, output Y);
+    assign Y = (D0&~S) | (D1&S); 
+endmodule
