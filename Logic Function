@@ -1,0 +1,13 @@
+`timescale 1ns / 1ps
+
+module logic_func(
+input a,b,c,d,e,
+output out
+);
+wire i0,i1,i2,i3;
+
+two_to_four_decoder dec1(e ,a , 1'b1 , i0, i1, i2, i3 ); 
+
+eight_to_one_mux_with_two4to1Mux mux2(~i0, ~i1 , i3,  i1, 1'b0, ~e, i3, i2, d,c,b, out);
+
+endmodule
