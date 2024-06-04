@@ -1,0 +1,46 @@
+`timescale 1ns / 1ps
+
+module three_by_eight_decoder_testbench();
+    reg en;
+    reg [1:0] a;
+    wire [7:0] y;
+
+    three_to_eight_decoder dec1 (
+        .en(en),
+        .a1(a[1]),
+        .a0(a[0]),
+        .y7(y[7]),
+        .y6(y[6]),
+        .y5(y[5]),
+        .y4(y[4]),
+        .y3(y[3]),
+        .y2(y[2]),
+        .y1(y[1]),
+        .y0(y[0])
+    );
+
+    initial begin
+        en = 1'b1; a = 2'b00;
+        #10;
+        
+        en = 1'b1; a = 2'b01;
+        #10;
+        en = 1'b1; a = 2'b10;
+        #10;
+      
+        en = 1'b1; a = 2'b11;
+        #10;
+        en = 1'b0; a = 2'b00;
+        #10;
+
+        en = 1'b0; a = 2'b01;
+        #10;
+
+        en = 1'b0; a = 2'b10;
+        #10;
+        en = 1'b0; a = 2'b11;
+        #10;
+        
+        $finish;
+    end
+endmodule
