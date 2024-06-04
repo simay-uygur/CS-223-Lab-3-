@@ -1,0 +1,11 @@
+`timescale 1ns / 1ps
+
+module eight_to_one_mux_with_two4to1Mux(input d0,d1,d2,d3,d4,d5,d6,d7,s0,s1,s2, output out);
+    wire firstmux, secondmux,first,second,an1Wire,an2Wire,ns2Wire;
+    four_to_one_mux_Behav fone1(d0,d1,d2,d3,s0,s1,firstmux);
+    four_to_one_mux_Behav fone2(d4,d5,d6,d7,s0,s1,secondmux);
+    not not1(nots2Wire,s2);
+    and and1(an1Wire,firstmux,nots2Wire);
+    and and2(an2Wire,secondmux,s2);
+    or or1(out,an1Wire,an2Wire);
+endmodule
